@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Gaegu, } from "next/font/google";
+import { Poppins, Solway } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/navbar";
 
-const gaegu = Gaegu({
-  variable: "--font-gaegu-sans",
+const poppins = Poppins({
+  variable: "--font-poppins-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "700"], // Include weights you want to use
+  weight: ["300", "400", "700"],
+  display: "swap",
+});
+const solway = Solway({
+  variable: "--font-solway-sans",
+  subsets: ["latin"],
+  weight: ["300", "400", "700"],
   display: "swap",
 });
 
@@ -23,8 +30,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${gaegu.className} antialiased bg-repeat bg-[url(/images/bg-image.svg)]`}>
+        className={` ${solway.variable}  ${poppins.variable} !font-gaegu antialiased bg-repeat bg-[url(/images/bg-image.svg)]`}>
         {children}
+        <Navbar />
       </body>
     </html>
   );
